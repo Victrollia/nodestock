@@ -1,3 +1,5 @@
+//Stock Market Portfolio App by Victoria Cadogan
+
 const express = require('express');
 const exphbs  = require('express-handlebars');
 //create an express isntance called app 
