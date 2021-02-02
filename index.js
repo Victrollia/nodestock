@@ -8,13 +8,14 @@ const path = require('path');
 const PORT = process.env.PORT || 5000;
 const request = require('request');
 const bodyParser = require('body-parser');
+require('dotenv').config();
 
 //use body parser middleware
 app.use(bodyParser.urlencoded({extended: false}));
 
 //create call_api function
 function call_api(finishedAPI, ticker) {
-	request('https://cloud-sse.iexapis.com/stable/stock/' + ticker + '/quote?token=pk_9d0069978cca4c4685b658b67dfbefb3', {json: true }, (err, res, body) => {
+	request('https://cloud-sse.iexapis.com/stable/stock/' + ticker + '/quote?token=' + process.env.API_KEY, {json: true }, (err, res, body) => {
 	if (err) {return console.log(err);}
 	if (res.statusCode === 200){
 		//console.log(body);
